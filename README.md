@@ -57,6 +57,14 @@ Character classes define a set of characters that can occur within the string.
 - ```\p```- used to match character in specified unicode category
 - ```\d``` - used to match one decimal digit (0-9)
 
+In the example, here are some of the character classes explained.
+
+- ```\d``` - single digit Ex: ```[\da-z\.-]```
+Expression accept single digit character/lowercase from a-z, ```.```, or ```-```.
+
+- ```\w``` - alphanumeric character class Ex: ```[\/\w \.-]```
+Expression accept the ```/```, any word character, ``` ```, and ```.``` or ```-```.
+
 ### Flags
 Flags can change how the expression is interpreted. 
 - ```i``` - ignores case
@@ -75,10 +83,18 @@ A capture group does everything in the parentheses of a single unit. In the Rege
 
 ### Bracket Expressions
 Bracket expressions are represented in square brackets that match single character/element
+Examples:
+- ```[\da-z\.-]``` - accept any digit, a lowercase letter from a-z and ```.``` or ```-```.
+- ```[a-z\.]``` - accept any lowercase letter from a-z and a ```.```.
+- ```[\/\w \.-]``` - accept a ```/```, a word character, a ``` ```, ```.```, or ```-```.
 
 ### Greedy and Lazy Match
 - Greedy - matches longest possible string, basically telling the engine to match as many instances of the token
 - Lazy - matches shortest possible string, basically telling the engine to match the fewest amount of tokens
+- Quantifiers ```+```  ```*``` ```{}``` specify greedy matches since they force the search to carry through
+Examples:
+- ```([\da-z\.-]+)\.``` (+ indicates that the pattern must match 1 or more times.)
+- ```([a-z\.]{2,6})``` (signify that the pattern must match a minimum of 2 and a maximum of 6 times)
 
 ### Boundaries
 ```\b``` is an anchor similar to ```^``` and ```$```. It matches at a word bounday, which is zero length between two characters.
